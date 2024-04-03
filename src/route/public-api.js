@@ -1,5 +1,7 @@
 import express from "express";
 import uploadfile from "../controller/uploadfile-controller.js"; 
+import profile from "../controller/profile-controller.js"; 
+import location from "../controller/location-controller.js"; 
 import multer from "multer";
  
 const uploads = multer({ dest: 'uploads/' });
@@ -11,8 +13,8 @@ publicRouter.post('/api/upload/harian/tebus', uploads.single('file'), uploadfile
 publicRouter.post('/api/upload/harian/salur', uploads.single('file'), uploadfile.uploadsalur); 
 publicRouter.post('/api/upload/bulan/f5', uploadscsv.single('file'), uploadfile.uploadbulanf5); 
 publicRouter.post('/api/upload/bulan/f6', uploadscsv.single('file'), uploadfile.uploadbulanf6); 
-publicRouter.get('/api/profile', uploadfile.profile); 
-publicRouter.get('/api/location', uploadfile.location); 
+publicRouter.get('/api/profile', profile.profile); 
+publicRouter.get('/api/location', location.location); 
 
 
 export {
