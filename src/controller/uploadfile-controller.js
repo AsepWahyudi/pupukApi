@@ -61,67 +61,21 @@ const uploadbulanf5 = async (req, res, next) => {
     } catch (e) { 
         next(e);
     }
-}
-/* const uploadbulanf6 = async (req, res, next) => {
-    try { 
-        if (!req.file) {
-            return res.status(400).send('No files were uploaded.');
-        } 
-        const result = await uploadService.processUploadedFileBulanF6(req.file); 
-        res.send("Upload success");
-    } catch (e) { 
-        next(e);
-    }
-} */
-/* const uploadbulanf6 = async (req, res, next) => {
-    try { 
-        if (!req.file) {
-            return res.status(400).send('No files were uploaded.');
-        } 
-        // Meneruskan objek res ke dalam fungsi processUploadedFileBulanF6
-        const result = await uploadService.processUploadedFileBulanF6(req.file, res); 
-        res.send("Upload success");
-    } catch (e) { 
-        next(e);
-    }
-} */
-
-
+} 
 const uploadbulanf6 = async (req, res, next) => {
     try {
         if (!req.file) {
             return res.status(400).send('No files were uploaded.');
-        }
-        // Meneruskan objek res ke dalam fungsi processUploadedFileBulanF6
+        } 
         await uploadService.processUploadedFileBulanF6(req.file, res);
     } catch (e) {
         next(e);
     }
-};
-
-const profile = async (req, res, next) => {
-    try {
-        
-        await uploadService.profile(req.file, res);
-    } catch (e) {
-        next(e);
-    }
-};
-const location = async (req, res, next) => {
-    try {
-        
-        await uploadService.location(req.file, res);
-    } catch (e) {
-        next(e);
-    }
-};
-
+};  
 export default {
     upload,
     uploadtebus,
     uploadsalur,
     uploadbulanf5,
-    uploadbulanf6,
-    profile,
-    location,
+    uploadbulanf6, 
 }
